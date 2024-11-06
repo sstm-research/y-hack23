@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --primary: #593BFF;
+    --background: #f6f6f6;
+    --text: #525252; 
+    --text-opaco: #00000076;
+    --caption: #4432ac; 
+    --gray: #E1E1E6;
+    --background-light: #E5E5E5; 
+    --sidebar: #373746;
+    --white-fixed: #ffffff;
+    --red: #ff0000;
+    --orange: #c86418;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+
+    font-family: "Inter";
+    -webkit-font-smoothing: antialiased;
+}
+
+button {
+    font-family: 'Inter';
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/*==== Scroll Personalizado ====
+::-webkit-scrollbar{
+	width: .5vw;
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb{
+	background: linear-gradient(var(--background), var(--primary), var(--background));
+	border-radius: 10px;
+	transition: .6s ease-in;
+}
+*/
+
+// Define os tamanhos dos breakpoints
+$breakpoints: (
+    small: 480px,
+    medium: 800px,
+    large: 1024px
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $max-width: map-get($breakpoints, $breakpoint);
+
+        @media (max-width: $max-width) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "O breakpoint '#{$breakpoint}' não está definido!";
+    }
+}
+
+.case-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.case-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 calc(25% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.case-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.case-card h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+.case-card p {
+    font-size: 1em;
+    color: #555;
+}
